@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+	<script src="http://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="jquery.nav.js"></script>
+	<script type="text/javascript" src="lesson1.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$(".nav-wrapper ul"). onePageNav({
+				scrollSpeed: 2000
+			});
+
+			var menu = $(".nav-wrapper nav");
+
+			$("#menu-icon").click(function() {
+
+				menu.slideToggle();
+			});
+
+			$(window).resize(function() {
+				var w = $(window).width();
+
+				if(w > 768 && menu.is(":hidden")) {
+					menu.removeAttr('style');
+				}
+			});
+		});
+	</script>
+
+	
+
+	<style>
+
+		section {
+			height: 600px;
+			border: 1px solid black;
+			padding-top: 38px;
+
+		}
+
+		.nav-wrapper {
+			text-align: center;
+			background-color: pink;
+			position: fixed;
+			width: 100%;
+			top: 0px;
+			left: 0px;
+		}
+
+		.nav-wrapper ul {
+			 margin: 0px;
+			 padding: 0px;
+		}
+
+		.nav-wrapper li {
+			display: inline-block;
+			padding: 10px;
+		}
+
+		.nav-wrapper a {
+			color: red;
+		}
+
+		.current a {
+			color: purple;
+			font-weight: 700px;
+		}
+
+		#menu-icon {
+			position: absolute;
+			top: 0;
+			right: 10px;
+			font-size: 32px;
+			padding-right: 10px;
+			cursor: pointer;
+			display: none;
+		}
+
+		@media (max-width: 768px) {
+
+			.nav-wrapper nav {
+				display: none;
+			}
+
+			.nav-wrapper li {
+				display: block;
+			}
+			
+			#menu-icon{
+				display: block;
+			}
+
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="nav-wrapper">
+		<div id="menu-icon">&#9776;</div>
+		<nav>
+			<ul>
+				<li class="current"><a href="#home">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#resume">Resume</a></li>
+				<li><a href="#projects">Projects</a></li>
+			</ul>
+			
+		</nav>
+	</div>
+
+<div>
+	<section id="home">
+		<h1>Home</h1>
+	</section>
+	<section id="about">
+		<h1>About</h1>
+	</section>
+	<section id="resume">
+		<h1>Resume</h1>
+	</section>
+	<section id="projects">
+		<h1>Projects</h1>
+	</section>
+</div>
+
+
+</body>
+</html>
